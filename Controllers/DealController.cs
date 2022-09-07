@@ -44,6 +44,7 @@ public class DealController : ControllerBase
     }
 
     [HttpPost("{id:int}/cancel")]
+    [Topic(SuperConfig.pubSubName, "deals/cancel")]
     public async Task<ActionResult> CancelDeal(int id)
     {
         await _dealService.CancelDeal(id);
